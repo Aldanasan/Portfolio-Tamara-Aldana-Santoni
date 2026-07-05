@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamara Aldana Santoni | Portfolio Profesional</title>
+    <style>
+        /* --- ESTILOS GENERALES (MODERNO & PASTEL) --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            color: #334e68; 
+            background-color: #faf9f6; /* Fondo arena pastel muy suave */
+            line-height: 1.6;
+            padding: 40px 20px;
+            max-width: 1000px; /* Ampliado un poco para acomodar mejor las 3 columnas */
+            margin: 0 auto;
+        }
+
+        /* --- PORTADA / HERO CON ESPACIO DE FOTO --- */
+        .hero-container {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+            border: 1px solid #e2e8f0;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .hero-photo-wrapper {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #e0f2fe; 
+            border: 3px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 8.5pt;
+            color: #627d98;
+            font-weight: 600;
+            overflow: hidden; 
+        }
+
+        .hero-text-wrapper {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .hero-text-wrapper h1 {
+            font-size: 24pt;
+            font-weight: 700;
+            color: #102a43; 
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .hero-text-wrapper h2 {
+            font-size: 13pt;
+            font-weight: 500;
+            color: #627d98;
+            margin-bottom: 15px;
+        }
+
+        .contact-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: #f0f4f8;
+            color: #486581;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 9pt;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* --- TÍTULOS DE SECCIÓN MINIMALISTAS --- */
+        h2.section-title {
+            font-size: 13pt;
+            color: #102a43;
+            margin-top: 40px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        p.profile-text {
+            text-align: justify;
+            font-size: 10.5pt;
+            color: #486581;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* --- MASTER RESUMEN --- */
+        .pillars-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .pillar-card {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.01);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .pillar-recreation { background-color: #e0f2fe; color: #0369a1; } 
+        .pillar-hospitality { background-color: #fef3c7; color: #b45309; } 
+        .pillar-tech { background-color: #dcfce7; color: #15803d; } 
+
+        .pillar-card h3 {
+            font-size: 11.5pt;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .pillar-card ul {
+            list-style-type: none;
+        }
+
+        .pillar-card li {
+            font-size: 9.5pt;
+            margin-bottom: 5px;
+            opacity: 0.9;
+        }
+
+        /* --- SECCIÓN DE CVS (AHORA 3 COLUMNAS REPOSIVAS) --- */
+        .cv-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .cv-card {
+            background: #ffffff;
+            padding: 22px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Alinea los botones al fondo equitativamente */
+            min-height: 220px;
+        }
+
+        .cv-card-content h3 {
+            font-size: 12pt;
+            color: #102a43;
+            margin-bottom: 6px;
+        }
+
+        .cv-card-content p {
+            font-size: 9.5pt;
+            color: #627d98;
+            margin-bottom: 15px;
+        }
+
+        .btn-wrapper {
+            margin-top: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 14px;
+            margin: 4px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 9.5pt;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: #486581;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #334e68;
+        }
+
+        .btn-secondary {
+            background-color: #f0f4f8;
+            color: #486581;
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e2e8f0;
+        }
+
+        /* --- EXPERIENCIA LABORAL --- */
+        .exp-item {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .exp-company {
+            font-size: 11.5pt;
+            font-weight: 700;
+            color: #102a43;
+        }
+
+        .exp-role {
+            color: #486581;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .exp-date {
+            font-weight: 600;
+            color: #9fb3c8;
+            font-size: 9.5pt;
+        }
+
+        .exp-item ul {
+            padding-left: 18px;
+            margin-top: 6px;
+        }
+
+        .exp-item li {
+            font-size: 9.5pt;
+            margin-bottom: 4px;
+            color: #486581;
+        }
+
+        /* --- EDUCACIÓN Y CERTIFICACIONES --- */
+        .info-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .info-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .info-box h3 {
+            font-size: 11.5pt;
+            color: #102a43;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 4px;
+        }
+
+        .info-box ul {
+            list-style-type: square;
+            padding-left: 18px;
+        }
+
+        .info-box li {
+            font-size: 9.5pt;
+            margin-bottom: 6px;
+            color: #486581;
+        }
+
+        /* --- CONTACTO / FOOTER --- */
+        .footer-contact {
+            text-align: center;
+            padding: 25px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            color: #102a43;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+
+        .footer-contact p {
+            font-size: 10.5pt;
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #486581;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 8px;
+            font-size: 9.5pt;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. PORTADA CON FOTO CIRCULAR -->
+    <div class="hero-container">
+        <div class="hero-photo-wrapper">
+            <!-- <img src="tu-foto.jpg" alt="Tamara" style="width:100%; height:100%; object-fit:cover;"> -->
+            [  Foto Aquí ]
+        </div>
+        <div class="hero-text-wrapper">
+            <h1>TAMARA ALDANA SANTONI</h1>
+            <h2>Recreation, Guest Experience &amp; Operations Professional</h2>
+            <div class="contact-tags">
+                <span class="tag">📧 aldanasantoni@gmail.com</span>
+                <span class="tag">📍 México | Global</span>
+                <span class="tag">🪪 Pasaporte AR (2029)</span>
+                <span class="tag">🚗 Auto y Moto</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. SOBRE MÍ -->
+    <!-- SECCIÓN INNOVADORA: INTERACTIVE JOURNEY MATCHER -->
+    <h2 class="section-title">¿Qué perfil estás buscando hoy? <span style="font-size: 10pt; text-transform: none; color: #7f8c8d;">(Haz clic para adaptar el portfolio)</span></h2>
+    
+    <div style="display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;">
+        <button class="btn btn-secondary" onclick="matchVibe('recreacion', '#e0f2fe', '✨ ¡Energía alta, dinámico y enfocado en experiencias memorables junto al mar!')" style="flex: 1; min-width: 150px; cursor: pointer;">🏖️ Recreación & Hospitalidad</button>
+        <button class="btn btn-secondary" onclick="matchVibe('retail', '#fef3c7', '📊 ¡Enfoque analítico, liderazgo de equipos y optimización de operaciones comerciales!')" style="flex: 1; min-width: 150px; cursor: pointer;">🛍️ Retail & Liderazgo</button>
+        <button class="btn btn-secondary" onclick="matchVibe('tech', '#dcfce7', '💻 ¡Estructurado, detallista, dominio de herramientas digitales y gestión organizada!')" style="flex: 1; min-width: 150px; cursor: pointer;">⚙️ Tech & Admin Remoto</button>
+    </div>
+
+    <!-- Mensaje dinámico de "Vibe Check" -->
+    <div id="vibe-badge" style="background-color: #f0f4f8; padding: 12px; border-radius: 8px; text-align: center; font-weight: 600; font-size: 10pt; color: #486581; margin-bottom: 20px; border: 1px dashed #cbd5e1; transition: all 0.3s ease;">
+        ⚡ Explora mis facetas profesionales haciendo clic en los botones de arriba.
+    </div>
+
+    <!-- CONTENEDOR SOBRE MÍ (DINÁMICO) -->
+    <div id="dynamic-profile" style="transition: all 0.5s ease; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; background: #ffffff;">
+        <p id="profile-text" style="text-align: justify; font-size: 10.5pt; color: #486581;">
+            ¡Hola! Soy Tamara. Profesional de la Educación Física con más de 10 años de trayectoria transformando la experiencia de huéspedes, alumnos y equipos en Argentina y México. Mi perfil destaca por una versatilidad única: combino el liderazgo y la metodología de actividades recreativas y deportivas con una sólida competencia en gestión administrativa, control de operaciones y diseño digital. Me apasiona crear entornos dinámicos, seguros e inclusivos, manteniendo siempre una mentalidad proactiva orientada a la resolución y al servicio de excelencia.
+        </p>
+    </div>
+
+    <!-- SCRIPT AL FINAL DEL BODY (ANTES DE </body>) -->
+    <script>
+        function matchVibe(perfil, colorPastel, mensaje) {
+            const contenedor = document.getElementById('dynamic-profile');
+            const texto = document.getElementById('profile-text');
+            const badge = document.getElementById('vibe-badge');
+            
+            // Cambiar fondo del contenedor con efecto suave
+            contenedor.style.backgroundColor = colorPastel;
+            badge.innerHTML = mensaje;
+            badge.style.backgroundColor = colorPastel;
+            badge.style.borderColor = "transparent";
+
+            // Cambiar textos personalizados según la selección
+            if(perfil === 'recreacion') {
+                texto.innerHTML = "<strong>Perfil Recreación & Hospitalidad:</strong> Con más de una década coordinando actividades recreativas, náuticas y deportivas, me especializo en conectar con personas de todas las edades y nacionalidades. Mi experiencia en el sector hotelero y de playa en México me permite diseñar programas dinámicos de animación, gestionar servicios para huéspedes VIP y asegurar estándares de máxima satisfacción en entornos turísticos globales.";
+            } else if(perfil === 'retail') {
+                texto.innerHTML = "<strong>Perfil Retail & Liderazgo de Operaciones:</strong> Experta en la gestión comercial integral y dirección de equipos en tiendas de alta demanda. Mi experiencia como Supervisora me ha capacitado para coordinar cadenas logísticas, gestionar inventarios complejos, auditar cajas y, fundamentalmente, reclutar y formar talento humano para alcanzar objetivos de venta y excelencia operativa.";
+            } else if(perfil === 'tech') {
+                texto.innerHTML = "<strong>Perfil Tecnológico y Administrativo:</strong> Cuento con formación técnica en programación y habilidades avanzadas en diseño de interfaces de usuario (UX/UI) mediante Figma. Esta mentalidad lógica y digital la aplico con éxito en la organización de flujos de trabajo administrativos, auditorías financieras de caja, soporte de Recursos Humanos y gestión remota eficiente.";
+            }
+        }
+    </script>
+
+    <!-- 3. MASTER RESUMEN -->
+    <h2 class="section-title">Master Resumen: Pilares Profesionales</h2>
+    <div class="pillars-container">
+        <div class="pillar-card pillar-recreation">
+            <h3>🏋️‍♂️ Recreación y Deportes</h3>
+            <ul>
+                <li>• +10 años en animación y coordinación.</li>
+                <li>• Instrucción de natación recreativa y formal.</li>
+                <li>• Educación física adaptada e inclusiva.</li>
+            </ul>
+        </div>
+        <div class="pillar-card pillar-hospitality">
+            <h3>🏨 Hospitalidad y Gestión</h3>
+            <ul>
+                <li>• Guest Experience y trato al cliente VIP.</li>
+                <li>• Control de caja, arqueos y apoyo a RRHH.</li>
+                <li>• Supervisión de locales comerciales y stock.</li>
+            </ul>
+        </div>
+        <div class="pillar-card pillar-tech">
+            <h3>💻 Tecnología y Diseño</h3>
+            <ul>
+                <li>• Diseño de interfaces (UX/UI) en Figma.</li>
+                <li>• Maquetación Frontend (HTML &amp; CSS).</li>
+                <li>• Creación de marcas y recursos en Canva.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 4. SECCIÓN DE CVS (CON EL TERCER PERFIL ENFOCADO EN RETAIL & OPERACIONES) -->
+    <h2 class="section-title">Mis Currículums (Descarga)</h2>
+    <div class="cv-container">
+        <!-- Tarjeta 1 -->
+        <div class="cv-card">
+            <div class="cv-card-content">
+                <h3>Perfil: Recreación &amp; Hospitalidad</h3>
+                <p>Para vacantes en Hoteles, Cruceros, Clubs Vacacionales, Beach Clubs y Centros Deportivos.</p>
+            </div>
+            <div class="btn-wrapper">
+                <a href="#" class="btn btn-primary">Descargar (ES)</a>
+                <a href="#" class="btn btn-secondary">Download (EN)</a>
+            </div>
+        </div>
+        <!-- Tarjeta 2 -->
+        <div class="cv-card">
+            <div class="cv-card-content">
+                <h3>Perfil: Operaciones &amp; Administración</h3>
+                <p>Para Front Desk, puestos de coordinación, asistencia corporativa o administración remota.</p>
+            </div>
+            <div class="btn-wrapper">
+                <a href="#" class="btn btn-primary">Descargar (ES)</a>
+                <a href="#" class="btn btn-secondary">Download (EN)</a>
+            </div>
+        </div>
+        <!-- Tarjeta 3 (NUEVA!) -->
+        <div class="cv-card">
+            <div class="cv-card-content">
+                <h3>Perfil: Retail • Leadership • Operations</h3>
+                <p>Para puestos de Store Manager, Supervisión comercial, Gestión de equipos y Logística de Tiendas.</p>
+            </div>
+            <div class="btn-wrapper">
+                <a href="#" class="btn btn-primary">Descargar (ES)</a>
+                <a href="#" class="btn btn-secondary">Download (EN)</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. TRAYECTORIA DESTACADA -->
+    <h2 class="section-title">Trayectoria Destacada</h2>
+    
+    <div class="exp-item">
+        <div class="exp-header">
+            <div>
+                <span class="exp-company">Maia Restaurante &amp; Beach Club</span> 
+                <span class="exp-role">| Cajera Administrativa &amp; Guest Services</span>
+            </div>
+            <span class="exp-date">2024 – Presente (MX)</span>
+        </div>
+        <ul>
+            <li>Gestión de operaciones de caja y soporte directo en tareas administrativas para Recursos Humanos.</li>
+            <li>Coordinación de áreas de camastros y atención directa a huéspedes multiculturales en zonas turísticas.</li>
+        </ul>
+    </div>
+
+    <div class="exp-item">
+        <div class="exp-header">
+            <div>
+                <span class="exp-company">Popper Sports</span> 
+                <span class="exp-role">| Supervisora de Tienda</span>
+            </div>
+            <span class="exp-date">2022 – 2024 (AR)</span>
+        </div>
+        <ul>
+            <li>Promoción basada en desempeño. Liderazgo operativo, control logístico y manejo de inventario de stock.</li>
+            <li>Capacitación integral de nuevos colaboradores previo a su asignación formal a los equipos.</li>
+        </ul>
+    </div>
+
+    <!-- 6. EDUCACIÓN Y CERTIFICACIONES -->
+    <div class="info-container">
+        <div class="info-box">
+            <h3>🎓 Educación Formativa</h3>
+            <ul>
+                <li><strong>Profesora de Educación Física</strong><br><small style="color:#7f8c8d;">ISEF N.º 11 – Rosario</small></li>
+                <li><strong>Coordinadora Turística</strong><br><small style="color:#7f8c8d;">Centro de Formación Profesional N.º 401</small></li>
+            </ul>
+        </div>
+        <div class="info-box">
+            <h3>📜 Certificaciones</h3>
+            <ul>
+                <li>Certificación PADI Open Water Diver</li>
+                <li>Diseño UX/UI &amp; Prototipado (Figma)</li>
+                <li>Bases de Maquetación Web (HTML, CSS, JS)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 7. CONTACTO -->
+    <div class="footer-contact">
+        <p><strong>¿Conectamos?</strong> Disponible para entrevistas virtuales, puestos estacionales y reubicación.</p>
+        <div class="footer-links">
+            <a href="mailto:aldanasantoni@gmail.com">✉️ Correo</a> | 
+            <a href="#">💼 LinkedIn</a> | 
+            <a href="+52 9841864937">💬 WhatsApp</a>
+        </div>
+    </div>
+
+</body>
+</html>
